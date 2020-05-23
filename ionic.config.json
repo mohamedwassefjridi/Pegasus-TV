@@ -1,0 +1,7 @@
+{
+  "name": "PegasusTV",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

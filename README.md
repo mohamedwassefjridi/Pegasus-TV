@@ -1,2 +1,1 @@
-# Pegasus-TV
-Projet Dev Mobile
+# PegasusTV

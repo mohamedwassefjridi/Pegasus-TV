@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>PegasusTV</title>
+
+  <base href="/" />
+
+  <meta name="color-scheme" content="light dark" />
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <link rel="shortcut icon" type="image/png" href="%PUBLIC_URL%/assets/icon/favicon.png" />
+
+  <!-- Codebase css -->
+  <link rel="stylesheet" id="css-main" href="%PUBLIC_URL%/assets/css/codebase.min.css">
+  <!-- Codebase Earth theme -->
+  <link rel="stylesheet" id="css-theme" href="%PUBLIC_URL%/assets/css/themes/earth.min.css">
+
+  <!-- videojs css -->
+  <link href="https://vjs.zencdn.net/7.7.6/video-js.css" rel="stylesheet" />
+  <!-- videojs Skin -->
+  <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Ionic App" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+<!-- videojs script -->
+<script src="https://vjs.zencdn.net/7.7.6/video.js"></script>
+
+<!-- videojs-playlist script -->
+<script src="%PUBLIC_URL%/assets/js/videojs-playlist.js"></script>
+
+<!-- Codebase JS -->
+<script src="%PUBLIC_URL%/assets/js/codebase.core.min.js"></script>
+<script src="%PUBLIC_URL%/assets/js/codebase.app.min.js"></script>
+
+</html>
