@@ -30,18 +30,22 @@ interface Channel {
   name: string;
 }
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonSplitPane contentId="main">
-        <Menu />
-        <IonRouterOutlet id="main">
-          <Route path="/channel/DreikoTV" render={(props) => <Home {...props} channel={props.history.location.state.channel as Channel} />} exact  />
-          <Redirect from="/" to="/channel/DreikoTV" exact />
-        </IonRouterOutlet>
-      </IonSplitPane>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  // Init dreikotv here if none is set
+  var dreikotv: Channel = { name: 'DreikoTV', url: '/channel/DreikoTV', icon: "assets/images/dreikotv.png" }
+
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonSplitPane contentId="main">
+          <Menu />
+          <IonRouterOutlet id="main">
+            <Route path="/" render={(props) => { return (typeof props.history.location.state !== 'undefined') ? (<Home {...props} channel={props.history.location.state['channel'] as Channel} />) : (<Home {...props} channel={dreikotv} />) }} exact />
+          </IonRouterOutlet>
+        </IonSplitPane>
+      </IonReactRouter>
+    </IonApp>
+  )
+}
 
 export default App;

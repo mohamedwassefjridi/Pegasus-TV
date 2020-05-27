@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">PegasusTV</string>
+    <string name="title_activity_main">PegasusTV</string>
+    <string name="package_name">com.pegasustv.app</string>
+    <string name="custom_url_scheme">com.pegasustv.app</string>
+</resources>

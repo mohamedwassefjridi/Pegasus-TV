@@ -15,6 +15,7 @@ interface ContainerProps {
 }
 
 const Home: React.FC<ContainerProps> = ({ channel }) => {
+  
 
   return (
     <IonPage>
@@ -27,13 +28,13 @@ const Home: React.FC<ContainerProps> = ({ channel }) => {
             </div>
           </div>
           <IonButtons slot="end">
-            <IonMenuButton/>
+            <IonMenuButton />
           </IonButtons>
         </IonToolbar>
       </IonHeader>
 
       <IonContent>
-        <ExploreContainer name={channel.name} />
+        <ExploreContainer channel={channel} />
       </IonContent>
     </IonPage>
 

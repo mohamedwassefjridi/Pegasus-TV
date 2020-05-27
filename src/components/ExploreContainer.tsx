@@ -2,10 +2,17 @@ import React from 'react';
 import videojs from 'videojs-playlist'
 import './ExploreContainer.css';
 
-interface ContainerProps {
+interface Channel {
+  url: string;
+  icon: string;
   name: string;
 }
-const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
+
+interface ContainerProps {
+  channel: Channel;
+}
+
+const ExploreContainer: React.FC<ContainerProps> = ({ channel }) => {
   const [streamUrl, setStreamUrl] = React.useState("https://usb.bozztv.com/ssh101/dreikotv/dreikotv/playlist.m3u8")
 
   const didMountRef = React.useRef(false);
@@ -52,7 +59,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <div className="col-md-12">
         <div className="block block-themed">
           <div className="block-header bg-gd-dusk">
-            <h3 className="block-title">{name}</h3>
+            <h3 className="block-title">{channel.name}</h3>
           </div>
           <div className="block-content block-content-full p-0">
             <video
