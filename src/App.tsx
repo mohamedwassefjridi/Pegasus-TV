@@ -24,15 +24,20 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Menu from './components/Menu';
 
+interface Channel {
+  url: string;
+  icon: string;
+  name: string;
+}
+
 const App: React.FC = () => (
   <IonApp>
-
     <IonReactRouter>
       <IonSplitPane contentId="main">
         <Menu />
         <IonRouterOutlet id="main">
-          <Route path="/home" component={Home} exact />
-          <Redirect from="/" to="/home" exact />
+          <Route path="/channel/DreikoTV" render={(props) => <Home {...props} channel={props.history.location.state.channel as Channel} />} exact  />
+          <Redirect from="/" to="/channel/DreikoTV" exact />
         </IonRouterOutlet>
       </IonSplitPane>
     </IonReactRouter>

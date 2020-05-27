@@ -1,91 +1,49 @@
 import {
     IonContent,
-    IonIcon,
-    IonItem,
-    IonLabel,
-    IonList,
-    IonListHeader,
     IonMenu,
-    IonMenuToggle,
-    IonNote,
+    IonItem,
 } from '@ionic/react';
 
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
 import './Menu.css';
+import { Link } from 'react-router-dom';
 
 interface Channel {
     url: string;
-    iosIcon: string;
-    mdIcon: string;
-    title: string;
+    icon: string;
+    name: string;
 }
 
 const channels: Channel[] = [
     {
-        title: 'Inbox',
-        url: '/page/Inbox',
-        iosIcon: mailOutline,
-        mdIcon: mailSharp
+        name: 'DreikoTV',
+        url: '/channel/DreikoTV',
+        icon: "assets/images/dreikotv.png",
     },
     {
-        title: 'Outbox',
-        url: '/page/Outbox',
-        iosIcon: paperPlaneOutline,
-        mdIcon: paperPlaneSharp
-    },
-    {
-        title: 'Favorites',
-        url: '/page/Favorites',
-        iosIcon: heartOutline,
-        mdIcon: heartSharp
-    },
-    {
-        title: 'Archived',
-        url: '/page/Archived',
-        iosIcon: archiveOutline,
-        mdIcon: archiveSharp
-    },
-    {
-        title: 'Trash',
-        url: '/page/Trash',
-        iosIcon: trashOutline,
-        mdIcon: trashSharp
-    },
-    {
-        title: 'Spam',
-        url: '/page/Spam',
-        iosIcon: warningOutline,
-        mdIcon: warningSharp
+        name: 'K1Live',
+        url: '/channel/K1Live',
+        icon: "assets/images/k1live.png",
     }
 ];
 
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
 const Menu: React.FC = () => {
-    const location = useLocation();
-
     return (
         <IonMenu contentId="main" type="overlay">
             <IonContent>
                 <div className="content-side content-side-full">
                     <ul className="nav-main">
-                        <li>
-                            <a href="be_pages_dashboard.html" style={{ verticalAlign: "middle" }} className="d-flex">
-                                <img src="assets/images/dreikotv.png" className="h-25 w-25" />
-                                <h3 className="sidebar-mini-hide font-w400 mt-15 ml-10">DreikoTV</h3>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="be_pages_dashboard.html" style={{ verticalAlign: "middle" }} className="d-flex">
-                                <img src="assets/images/k1live.png" className="h-25 w-25" />
-                                <h3 className="sidebar-mini-hide font-w400 mt-15 ml-10">K1Live</h3>
-                            </a>
-                        </li>
-
-
+                        {channels.map((channel) => {
+                            return (
+                                <li key={channel.name}>
+                                    <Link to={{ pathname: channel.url, state: { channel } }} className="d-flex h-auto w-auto p-10" style={{ verticalAlign: "middle" }} >
+                                        <img src={channel.icon} className="h-100 w-25" />
+                                        <h3 className="sidebar-mini-hide font-w400 mt-15 ml-10">{channel.name}</h3>
+                                    </Link>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
 

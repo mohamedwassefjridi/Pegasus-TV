@@ -2,12 +2,12 @@ import React from 'react';
 import videojs from 'videojs-playlist'
 import './ExploreContainer.css';
 
-interface ContainerProps { }
-
-const ExploreContainer: React.FC<ContainerProps> = () => {
-  const [user, setUser] = React.useState("Bob")
+interface ContainerProps {
+  name: string;
+}
+const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   const [streamUrl, setStreamUrl] = React.useState("https://usb.bozztv.com/ssh101/dreikotv/dreikotv/playlist.m3u8")
-  
+
   const didMountRef = React.useRef(false);
 
   React.useEffect(() => {
@@ -16,7 +16,7 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
     else
       didMountRef.current = true;
   }, [streamUrl]);
-  
+
   function changeChannel(id: number) {
     switch (id) {
       case 1:
@@ -48,31 +48,31 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
   }
 
   return (
-        <div className="row">
-          <div className="col-md-12">
-            <div className="block block-themed">
-              <div className="block-header bg-gd-dusk">
-                <h3 className="block-title">DreikoTV</h3>
-              </div>
-              <div className="block-content block-content-full">
-                <video
-                  id="my-video"
-                  className="video-js vjs-theme-forest w-auto"
-                  controls
-                  preload="auto"
-                  height="400"
-                  poster="MY_VIDEO_POSTER.jpg"
-                  data-setup="{}">
-                  <source src={streamUrl} type="application/x-mpegURL" />
-                  <p className="vjs-no-js">
-                    To view this video please enable JavaScript, and consider upgrading to a
-                    web browser that
-                      </p>
-                </video>
-              </div>
-            </div>
+    <div className="row">
+      <div className="col-md-12">
+        <div className="block block-themed">
+          <div className="block-header bg-gd-dusk">
+            <h3 className="block-title">{name}</h3>
           </div>
+          <div className="block-content block-content-full p-0">
+            <video
+              id="my-video"
+              className="video-js vjs-theme-forest w-auto"
+              controls
+              preload="auto"
+              height="400"
+              poster="MY_VIDEO_POSTER.jpg"
+              data-setup="{}">
+              <source src={streamUrl} type="application/x-mpegURL" />
+              <p className="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                      </p>
+            </video>
+          </div>
+        </div>
       </div>
+    </div>
   );
 };
 export default ExploreContainer;

@@ -1,9 +1,21 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton, IonImg, IonGrid, IonRow, IonCol, IonNav, IonButton, IonIcon, IonMenuButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonMenuButton } from '@ionic/react';
 import React from 'react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
+import { useParams } from 'react-router';
 
-const Home: React.FC = () => {
+interface Channel {
+  url: string;
+  icon: string;
+  name: string;
+}
+
+interface ContainerProps {
+  channel: Channel;
+}
+
+const Home: React.FC<ContainerProps> = ({ channel }) => {
+
   return (
     <IonPage>
       <IonHeader>
@@ -21,7 +33,7 @@ const Home: React.FC = () => {
       </IonHeader>
 
       <IonContent>
-        <ExploreContainer />
+        <ExploreContainer name={channel.name} />
       </IonContent>
     </IonPage>
 
