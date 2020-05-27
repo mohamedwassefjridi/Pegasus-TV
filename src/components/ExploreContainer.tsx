@@ -48,19 +48,6 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
   }
 
   return (
-    <main id="main-container" className="bg-gray-light">
-      <div className="bg-white">
-        <div className="content content-full">
-          <div className="pt-20 pb-10 text-center">
-            <img src="assets/icon/icon.png"></img>
-            <h1 className="font-w300 mb-10 mt-2">PegasusTV</h1>
-            <h2 className="h4 text-muted font-w300 mb-0">Welcome <strong>{user}</strong>, everything looks good.</h2>
-            <button type="button" className="btn btn-square btn-outline-warning min-width-125 mt-20" onClick={() => setUser("Alice")}>Switch to Alice</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="content">
         <div className="row">
           <div className="col-md-12">
             <div className="block block-themed">
@@ -85,45 +72,7 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-12">
-            <div className="block block-themed">
-              <div className="block-header bg-gd-dusk">
-                <h3 className="block-title">Channels</h3>
-              </div>
-              <div className="block-content block-content-full">
-                <div className="row gutters-tiny">
-                  <div className="col-6 col-md-4 col-xl-2">
-                    <a className="block block-rounded block-bordered block-link-shadow text-center" onClick={() => changeChannel(1)} href="javascript:void(0)">
-                      <div className="block-content">
-                        <p className="mt-5">
-                          <img src="http://www.ssh101.com/img/dreikotv.jpg"></img>
-                        </p>
-                        <p className="font-w600">DreikoTV</p>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-6 col-md-4 col-xl-2">
-                    <a className="block block-rounded block-bordered block-link-shadow text-center" onClick={() => changeChannel(2)} href="javascript:void(0)">
-                      <div className="block-content">
-                        <p className="mt-5">
-                          <img src="http://www.ssh101.com/img/k1live.jpg"></img>
-                        </p>
-                        <p className="font-w600">K1 Live</p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-
-    </main>
-
   );
 };
 export default ExploreContainer;
